@@ -1,0 +1,6 @@
+my goal is to add obstacles-
+use pygame to draw a rectangle???(for now its ok)
+generate it using rand int
+make it fall
+make it reappear
+add a collision detector
