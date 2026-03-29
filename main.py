@@ -35,7 +35,7 @@ while running:
         x=680
     screen.blit(player,(x,y))
     oy+=8
-    pygame.draw.circle(screen,'green',(ox,oy),40)
+    pygame.draw.rect(screen,'purple',(ox,oy,40,40))
     pygame.display.update()
     if oy>600:
         ox= random.randint(0, 800)
