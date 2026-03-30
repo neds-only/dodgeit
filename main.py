@@ -40,6 +40,10 @@ while running:
     if oy>600:
         ox= random.randint(0, 800)
         oy=0
+    ro=pygame.Rect(ox,oy,40,40)#rect should be 'Rect' V.IMP
+    rp=pygame.Rect(x,y,130,130)
+    if rp.colliderect(ro):
+        print('HIT')
 pygame.quit()
 
 
