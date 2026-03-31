@@ -1,6 +1,7 @@
 #initiate pygame
 import pygame
 import random
+import pygame.display
 pygame.init()
 #set the screen and background
 screen=pygame.display.set_mode((800,600))
@@ -13,7 +14,7 @@ player=pygame.transform.scale(player,(130,130))
 #make the loop for pygame to keep repeating the screen+then add the option to close the loop
 running=True
 x = 0
-y = 370
+y = 450
 ox=0
 oy=0
 while running:
@@ -40,14 +41,18 @@ while running:
     if oy>600:
         ox= random.randint(0, 800)
         oy=0
-    ro=pygame.Rect(ox,oy,40,40)#rect should be 'Rect' V.IMP
-    rp=pygame.Rect(x,y,130,130)
+    ro=pygame.Rect(ox,oy,20,20)#rect should be 'Rect' V.IMP
+    rp=pygame.Rect(x,y,100,100)
+    gameloop=False
+    font=pygame.font.Font(None,150)
     if rp.colliderect(ro):
-        print('HIT')
+        gameloop=True
+    if gameloop==True:
+        text=font.render('game over',False,'purple')
+        screen.blit(text,(150,200))
+        pygame.display.update()
+        running=False
 pygame.quit()
-
-
-
 
 
 
