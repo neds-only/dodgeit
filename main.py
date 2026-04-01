@@ -1,5 +1,6 @@
 #initiate pygame
 import pygame
+import time
 import random
 import pygame.display
 pygame.init()
@@ -14,9 +15,10 @@ player=pygame.transform.scale(player,(130,130))
 #make the loop for pygame to keep repeating the screen+then add the option to close the loop
 running=True
 x = 0
-y = 450
+y = 383
 ox=0
 oy=0
+a=0
 while running:
     for i in pygame.event.get():
         if i.type==pygame.QUIT:
@@ -38,22 +40,29 @@ while running:
     oy+=8
     pygame.draw.rect(screen,'purple',(ox,oy,40,40))
     pygame.display.update()
+    font=pygame.font.Font(None,40)
     if oy>600:
         ox= random.randint(0, 800)
         oy=0
+        a+=1
+    text1 = font.render('score:' + str(a), True, 'red')
+    screen.blit(text1, (0, 0))
+    pygame.display.update()
     ro=pygame.Rect(ox,oy,20,20)#rect should be 'Rect' V.IMP
     rp=pygame.Rect(x,y,100,100)
     gameloop=False
-    font=pygame.font.Font(None,150)
+    font1=pygame.font.Font(None,100)
     if rp.colliderect(ro):
         gameloop=True
     if gameloop==True:
-        text=font.render('game over',False,'purple')
-        screen.blit(text,(150,200))
+        text=font1.render('game over',False,'purple')
+        text2=font.render('press R to restart',True,'red')
+        screen.blit(text2,(255,300))
+        screen.blit(text,(200,240))
         pygame.display.update()
+        time.sleep(5)
         running=False
 pygame.quit()
-
 
 
 
