@@ -51,6 +51,7 @@ while running:
                         ox = random.randint(0, 760)
                         oy = 0
                         a += 1
+                score='the total score is: '+str(a)
                 text1 = font.render('score:' + str(a), True, 'red')
                 screen.blit(text1, (0, 0))
                 ro = pygame.Rect(ox, oy, 40, 40)  # rect should be 'Rect' V.IMP
@@ -60,8 +61,10 @@ while running:
         elif gameloop == 'game over':
                 text = font1.render('game over', True, 'purple')
                 text2 = font.render('press R to restart', True, 'red')
+                text3=font.render(score,True,'purple')
                 screen.blit(text2, (255, 300))
                 screen.blit(text, (200, 240))
+                screen.blit(text3,(250,500))
         pygame.display.update()
 pygame.quit()
 
